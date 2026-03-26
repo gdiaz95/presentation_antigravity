@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #181B24; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+.header {
+  height: 80pt;
+  background: #1C202B;
+  display: flex; align-items: center;
+  padding: 0 40pt;
+  border-bottom: 4pt solid #B165FB;
+}
+h1 { color: #FFFFFF; font-size: 32pt; margin: 0; }
+.content-area {
+  display: flex; flex-direction: row; flex: 1;
+  padding: 25pt 40pt; gap: 30pt;
+}
+.left-col {
+  flex: 0.45;
+  display: flex; flex-direction: column;
+}
+.right-col {
+  flex: 0.55;
+  background: #222633;
+  border: 1px solid #40695B;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+h2 { color: #40695B; font-size: 22pt; margin: 0 0 15pt 0; }
+p { color: #E0E0E0; font-size: 16pt; margin: 0 0 10pt 0; }
+ul { color: #E0E0E0; font-size: 16pt; margin: 0; padding-left: 20pt; }
+li { margin-bottom: 12pt; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Why It Matters</h1>
+</div>
+<div class="content-area">
+  <div class="left-col">
+    <h2>Key Applications</h2>
+    <ul>
+      <li><b>Drug Discovery:</b> Simulating molecular interactions accurately.</li>
+      <li><b>Cryptography:</b> Creating secure communications and breaking standard encryption.</li>
+      <li><b>Optimization:</b> Solving complex logistics and financial modeling problems instantly.</li>
+    </ul>
+  </div>
+  <div class="right-col">
+    <!-- Placeholder for chart -->
+    <div id="growth-chart" class="placeholder" style="width: 320pt; height: 230pt;"></div>
+  </div>
+</div>
+</body>
+</html>

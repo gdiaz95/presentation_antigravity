@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #181B24; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+.header {
+  height: 80pt;
+  background: #1C202B;
+  display: flex; align-items: center;
+  padding: 0 40pt;
+  border-bottom: 4pt solid #B165FB;
+}
+h1 { color: #FFFFFF; font-size: 32pt; margin: 0; }
+.content-area {
+  display: flex; flex-direction: row; flex: 1;
+  padding: 20pt 40pt; gap: 40pt;
+}
+.col {
+  flex: 1;
+  background: #252A38;
+  padding: 20pt;
+  border-top: 8pt solid #40695B;
+  display: flex; flex-direction: column;
+}
+h2 { color: #40695B; font-size: 24pt; margin: 0 0 15pt 0; text-align: center; }
+.col-right h2 { color: #B165FB; }
+.col-right { border-top-color: #B165FB; }
+p { color: #E0E0E0; font-size: 16pt; margin: 0 0 10pt 0; line-height: 1.3; }
+.bold-text { font-weight: bold; color: #FFFFFF; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Classical vs. Quantum</h1>
+</div>
+<div class="content-area">
+  <div class="col">
+    <h2>Classical Bits</h2>
+    <p>A classical computer processes information using <span style="font-weight: bold; color: #FFFFFF;">Bits</span>.</p>
+    <p>Each bit is like a switch that can only be exactly <span style="font-weight: bold; color: #40695B;">0</span> OR <span style="font-weight: bold; color: #40695B;">1</span>.</p>
+    <p>It performs calculations sequentially, one step at a time.</p>
+  </div>
+  <div class="col col-right">
+    <h2>Quantum Qubits</h2>
+    <p>A quantum computer uses <span style="font-weight: bold; color: #FFFFFF;">Qubits</span> (Quantum Bits).</p>
+    <p>Thanks to superposition, a qubit can be 0, 1, or <span style="font-weight: bold; color: #B165FB;">both at the same time</span>.</p>
+    <p>This allows it to explore many possible solutions simultaneously.</p>
+  </div>
+</div>
+</body>
+</html>
