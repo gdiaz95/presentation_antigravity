@@ -59,7 +59,13 @@ async function createPresentation() {
     }
 
     // Save
-    const outputPath = path.join(__dirname, 'quantum_computing_intro.pptx');
+    const outputDir = path.join(__dirname, 'generated_presentation');
+    const fs = require('fs');
+    if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
+    }
+    
+    const outputPath = path.join(outputDir, 'quantum_computing_intro.pptx');
     await pptx.writeFile({ fileName: outputPath });
     console.log('Presentation created successfully at:', outputPath);
 }
