@@ -4,33 +4,66 @@
 <style>
 body {
   width: 720pt; height: 405pt; margin: 0; padding: 0;
-  background: #181B24; font-family: Arial, sans-serif;
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  background: #FFFFFF; font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  box-sizing: border-box;
 }
-.content {
-  width: 560pt;
-  padding: 40pt; 
-  background: #222633; 
-  border-left: 16pt solid #B165FB;
-  border-bottom: 8pt solid #40695B;
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
-  display: flex; flex-direction: column; align-items: center;
+.title-container {
+  margin-top: 30pt;
+  width: 600pt;
+  text-align: center;
 }
-h1 { color: #FFFFFF; font-size: 46pt; margin: 0 0 15pt 0; text-align: center; }
-p { color: #E0E0E0; font-size: 24pt; margin: 0; text-align: center; }
-.accent-line {
-  background: #B165FB;
-  width: 100pt;
-  height: 4pt;
-  margin: 15pt 0;
+h1 {
+  color: #000000; font-size: 26pt; font-weight: bold; 
+  margin: 0; text-decoration: underline; line-height: 1.2;
+}
+.images-container {
+  display: flex; flex-direction: row; justify-content: center; align-items: center;
+  gap: 50pt;
+  margin-top: 20pt;
+}
+.hero-image {
+  height: 180pt; object-fit: contain;
+}
+.subtitle-container {
+  margin-top: 20pt;
+  text-align: center;
+}
+.perspective-text {
+  color: #000000; font-size: 20pt; font-style: italic; font-weight: bold; margin: 0 0 10pt 0;
+}
+.author-text {
+  color: #000000; font-size: 22pt; font-weight: bold; text-decoration: underline; margin: 0;
+}
+.footer-container {
+  width: 100%;
+  display: flex; justify-content: space-between;
+  padding: 0 20pt 10pt 20pt;
+  box-sizing: border-box;
+}
+.owl-logo {
+  width: 40pt; height: auto;
 }
 </style>
 </head>
 <body>
-<div class="content">
-  <h1>Quantum Computing</h1>
-  <div class="accent-line"></div>
-  <p>A Beginner's Guide to the Future</p>
-</div>
+  <div class="title-container">
+    <h1>Shortest-Path Solutions for Connecting Multiple Terminals via Deep Learning</h1>
+  </div>
+  
+  <div class="images-container">
+    <img src="robotmaze.png" class="hero-image" />
+    <img src="maze2d.png" class="hero-image" />
+  </div>
+  
+  <div class="subtitle-container">
+    <p class="perspective-text">A fresh perspective</p>
+    <p class="author-text">Gabriel Díaz Ramos</p>
+  </div>
+  
+  <div class="footer-container">
+    <img src="owl.png" class="owl-logo" />
+    <img src="owl.png" class="owl-logo" />
+  </div>
 </body>
 </html>
