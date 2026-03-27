@@ -201,9 +201,228 @@ h1 {
 
 ---
 
+## Content / Non-Title Slide Design Pattern
+
+> **MANDATORY**: When generating any **content slide** (slide 2 onwards) in a presentation following this project's style, you MUST follow the layout, color conventions, and emphasis rules described in this section. Do NOT deviate unless the user explicitly requests otherwise.
+
+This pattern is derived from the example content slide shown to the user (e.g., "Multigoal path planning with obstacles"). It favors a **clean academic layout**: white background, prominent title, left-side bullet points with inline emphasis, a right-side image, and an optional citation footer.
+
+---
+
+### Layout Zones (16:9, 720pt × 405pt)
+
+The slide uses a **two-region body** below a full-width title:
+
+| Zone | Position | Contents |
+|------|----------|----------|
+| **Title** | Top ~20% (full width) | Slide topic title |
+| **Bullets** | Left 55%, rows 20%–85% | 3–5 bullet points with inline emphasis |
+| **Image** | Right 40%, rows 20%–75% | One square/near-square image aligned top-right |
+| **Citation** | Bottom ~10% (full width) | Small-print academic reference(s), left-aligned |
+| **Slide number** | Bottom-right corner | Auto-numbered |
+
+```
+┌─────────────────────────────────────────────────────────┐
+│              [ TITLE — bold, centered, ~34pt ]           │
+├────────────────────────────────┬────────────────────────┤
+│  • Bullet 1  (black, body)     │                        │
+│  • Bullet 2  RED emphasis      │   [ IMAGE — top-right ]│
+│  • Bullet 3  bold emphasis     │                        │
+│  • Bullet 4  TEAL (key point)  │                        │
+├────────────────────────────────┴────────────────────────┤
+│ [citation — small gray italic, bottom-left]        [3]  │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+### Typography Rules
+
+| Element | Style | Size | Color |
+|---------|-------|------|-------|
+| **Slide title** | Bold, no underline | ~34pt | `#000000` black |
+| **Bullet body text** | Normal weight | ~20pt | `#000000` black |
+| **Bold inline emphasis** | `<strong>` / `font-weight: bold` | same | `#000000` black |
+| **Red inline emphasis** | Named constraint / warning term | same | `#CC0000` red |
+| **Teal inline / bullet** | Key solution, contribution, method | same | `#00A0A8` teal |
+| **Citation line** | Italic, light weight | ~9pt | `#777777` gray |
+| **Slide number** | Normal | ~10pt | `#777777` gray |
+
+- **Font family**: `'Segoe UI', Arial, sans-serif` — consistent with title slide
+- **Background**: `#FFFFFF` white — never colored backgrounds for content slides
+- **Alignment**: Title centered; bullets left-aligned; citation left-aligned
+
+---
+
+### Emphasis & Color Conventions
+
+These rules determine **when and how** to apply color:
+
+1. **Bold black** — key nouns or technical terms that need attention but are neutral (e.g., "computationally challenging problem")
+2. **Red** (`#CC0000`) — obstacles, constraints, warnings, must-avoid conditions. Used for 1–2 inline phrases only, never an entire bullet.
+3. **Teal / cyan** (`#00A0A8`) — the proposed solution, contribution, method, or key insight. This is the "hero color". Apply to **the final bullet** or a standalone insight bullet when it summarizes the slide's main takeaway.
+   - The teal bullet should begin with an **action verb**: *Simplify*, *Propose*, *Leverage*, *Apply*, *Introduce*
+4. **Never use all three emphases on the same slide** — pick red OR teal depending on whether the slide is problem-focused or solution-focused.
+5. **Maximum 2 colored phrases per slide** — readability over decoration.
+
+---
+
+### Bullet & Wording Conventions
+
+- Use **3–5 bullets** per content slide. More than 5 creates clutter.
+- Each bullet covers **one idea only**. If a bullet needs a sub-bullet, reconsider the slide structure.
+- **First 2–3 bullets**: Set up the problem, context, or background. Use black text with selective bold/red emphasis.
+- **Last bullet**: States the approach/contribution/insight. Written in **full teal** (`color: #00A0A8`), begins with an active verb.
+- **Do NOT use dashes or asterisks** as bullets — use HTML `<ul><li>` which renders as standard `•` dots.
+- Bullet text should be **20–22pt**, readable without zooming in.
+- Avoid complete sentences with verbose connectors ("In this work we propose…"). Be direct.
+
+---
+
+### Image Placement Rules
+
+- **Position**: Upper-right quadrant of the body area. Never center the image on the slide.
+- **Size**: Approximately **240pt × 200pt** (roughly square). Consistent across slides.
+- **Vertical alignment**: Image top-edge aligned with first bullet top-edge.
+- **The image must be relevant** to the slide topic — not decorative. If no image exists, use `generate_image` to create one.
+- **Only one image per content slide** using this layout. For slides that need multiple visuals, use a different layout.
+- **Never overlap** image and text. Left column ends where image begins.
+
+---
+
+### Citation / Reference Footer
+
+- When slides are based on academic work, include a **citation line** at the bottom-left in this format:
+  ```
+  A. Author, B. Author, and C. Author, "Paper Title", Journal/Press, Year.
+  ```
+- Style: `font-size: ~9pt`, `color: #777777`, `font-style: italic`
+- Position: `bottom: 10pt; left: 20pt` — hugging the bottom-left corner
+- Only include citation when relevant. Omit (remove the `<p class="citation">` element) for slides without references.
+
+---
+
+### HTML Template for Content Slides
+
+Use the following as the starting template for all non-title slide HTML files:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex; flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+}
+.slide-title {
+  text-align: center;
+  padding: 20pt 40pt 10pt 40pt;
+}
+h1 {
+  color: #000000; font-size: 34pt; font-weight: bold;
+  margin: 0; line-height: 1.15;
+}
+.body-area {
+  display: flex; flex-direction: row;
+  flex: 1;
+  padding: 10pt 20pt 30pt 30pt;
+  gap: 20pt;
+  min-height: 0;
+}
+.bullets-col {
+  flex: 0 0 57%;
+  display: flex; flex-direction: column; justify-content: flex-start;
+}
+ul {
+  margin: 0; padding-left: 24pt;
+  list-style-type: disc;
+}
+li {
+  color: #000000; font-size: 20pt; line-height: 1.35;
+  margin-bottom: 12pt;
+}
+/* Inline emphasis classes */
+.bold-em { font-weight: bold; }
+.red-em  { color: #CC0000; font-weight: bold; }
+.teal-li { color: #00A0A8; }          /* applied to the whole <li> */
+.teal-em { color: #00A0A8; font-weight: bold; }  /* inline span */
+
+.image-col {
+  flex: 0 0 38%;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 5pt;
+}
+.slide-image {
+  width: 240pt; height: auto; max-height: 200pt;
+  object-fit: contain;
+}
+.citation {
+  position: absolute;
+  bottom: 10pt; left: 20pt; right: 50pt;
+  color: #777777; font-size: 9pt; font-style: italic;
+  line-height: 1.3;
+}
+.slide-number {
+  position: absolute;
+  bottom: 10pt; right: 20pt;
+  color: #777777; font-size: 10pt;
+}
+</style>
+</head>
+<body>
+
+  <div class="slide-title">
+    <h1><!-- SLIDE TITLE HERE --></h1>
+  </div>
+
+  <div class="body-area">
+    <div class="bullets-col">
+      <ul>
+        <li><!-- Bullet 1: context/background, e.g.:
+             A robotic agent must visit <span class="bold-em">multiple pre-specified destinations</span> within an environment. --></li>
+        <li><!-- Bullet 2: constraint/problem, use red for key constraint term, e.g.:
+             The environment contains designated areas that must be avoided <span class="red-em">(obstacle-avoidance).</span> --></li>
+        <li><!-- Bullet 3: complexity/challenge, bold key term, e.g.:
+             Finding an optimal shortest path under these constraints is a <span class="bold-em">computationally challenging problem.</span> --></li>
+        <li class="teal-li"><!-- Bullet 4: key insight / contribution in TEAL, start with action verb, e.g.:
+             <span class="teal-em">Simplify</span> the problem using <span class="teal-em">image processing techniques</span> to aid path planning. --></li>
+      </ul>
+    </div>
+    <div class="image-col">
+      <img src="<!-- PATH TO RELEVANT IMAGE -->" class="slide-image" />
+    </div>
+  </div>
+
+  <!-- REMOVE citation if not applicable -->
+  <p class="citation">
+    <!-- A. Author, B. Author, and C. Author, "Paper Title", Publisher, Year. -->
+  </p>
+
+  <span class="slide-number"><!-- SLIDE NUMBER, e.g. 2 --></span>
+
+</body>
+</html>
+```
+
+> **Checklist before finalizing any content slide:**
+> - [ ] Title is bold, centered, ~34pt, black
+> - [ ] 3–5 bullets, left column only
+> - [ ] One image, top-right, ~240pt wide
+> - [ ] Red used for at most 1–2 constraint/warning phrases (never a full bullet)
+> - [ ] Last bullet or key insight bullet uses teal, starts with an action verb
+> - [ ] Citation present only when referencing a source
+> - [ ] Slide number in bottom-right corner
+
+---
+
 ## Creating a new PowerPoint presentation **without a template**
 
 When creating a new PowerPoint presentation from scratch, use the **html2pptx** workflow to convert HTML slides to PowerPoint with accurate positioning.
+
 
 ### Design Principles
 
