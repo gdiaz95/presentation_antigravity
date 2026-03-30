@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+}
+.slide-title {
+  text-align: center;
+  padding: 20pt 40pt 10pt 40pt;
+}
+h1 {
+  color: #000000; font-size: 34pt; font-weight: bold;
+  margin: 0; line-height: 1.15;
+}
+.body-area {
+  display: flex; flex-direction: row;
+  flex: 1;
+  padding: 10pt 20pt 10pt 30pt;
+  gap: 20pt;
+  min-height: 0;
+}
+.bullets-col {
+  flex: 0 0 57%;
+  display: flex; flex-direction: column; justify-content: flex-start;
+}
+ul {
+  margin: 0; padding-left: 24pt;
+  list-style-type: disc;
+}
+li {
+  color: #000000; font-size: 20pt; line-height: 1.35;
+  margin-bottom: 8pt;
+}
+.bold-em { font-weight: bold; }
+.red-em  { color: #CC0000; font-weight: bold; }
+.teal-li { color: #00A0A8; }
+.teal-em { color: #00A0A8; font-weight: bold; }
+.image-col {
+  flex: 0 0 38%;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 5pt;
+}
+.slide-image {
+  width: 240pt; height: auto; max-height: 200pt;
+  object-fit: contain;
+}
+.slide-number {
+  position: absolute;
+  bottom: 10pt; right: 20pt;
+  color: #777777; font-size: 10pt;
+}
+</style>
+</head>
+<body>
+
+  <div class="slide-title">
+    <h1>Qubits vs. Classical Bits</h1>
+  </div>
+
+  <div class="body-area">
+    <div class="bullets-col">
+      <ul>
+        <li>Classical bits hold exactly <span class="bold-em">one state</span> — 0 or 1 — at any time.</li>
+        <li>Qubits exploit <span class="red-em">superposition</span>: they exist in 0 and 1 simultaneously until measured.</li>
+        <li>Entanglement links qubits so measuring one <span class="bold-em">instantly determines</span> its partner's state.</li>
+        <li class="teal-li"><span class="teal-em">Leverage</span> these properties to achieve <span class="teal-em">exponential parallelism</span> in computation.</li>
+      </ul>
+    </div>
+    <div class="image-col">
+      <img src="bits_vs_qubits.png" class="slide-image" />
+    </div>
+  </div>
+
+  <span class="slide-number">2</span>
+
+</body>
+</html>
