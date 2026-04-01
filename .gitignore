@@ -1,3 +1,20 @@
+# Dependency Directories
 node_modules/
-*.log
+__pycache__/
+.pytest_cache/
+
+# Environment/Agent Metadata
 .agent/
+.codex
+
+# Lock Files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+poetry.lock
+Pipfile.lock
+
+# Logs and Inventories
+*.log
+inventory/
+.inventory/
